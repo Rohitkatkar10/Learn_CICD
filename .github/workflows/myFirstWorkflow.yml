@@ -1,5 +1,5 @@
-name: my-first-workflow
-# run-name: This-is-name 
+name: my-first-workflow # Name of the workflow shown on the left side in `Actions` tab.
+# run-name: This-is-name # `Dynamic name`, shown for ran workflows in middle, `optinal`, else commit message shown
 
 # Trigger this workflow for every push for all branches
 on: push 
