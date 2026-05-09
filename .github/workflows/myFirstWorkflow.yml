@@ -4,8 +4,8 @@ name: my-first-workflow # Name of the workflow shown on the left side in `Action
 # Trigger this workflow for every push for all branches
 on: push 
 jobs:
-  job1:
-    name: job1 Unique name
+  job1: # This should be unique
+    name: job1 Unique name # Optional, descriptive, 
     runs-on: ubuntu-latest
     steps:
       - name: Running single command in job1
