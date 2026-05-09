@@ -25,19 +25,23 @@ jobs:
           echo "Current time is `date`"
   job3:
     name: job3 UI name
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: job1
     steps:
       - name: Running single command in Job3 
         run: echo "Hi, I am from Job3"
+      - name: Running Powershell (win) command to get computer info
+        shell: pwsh
+        run: get-computerinfo
   job4:
     name: job4 UI name 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: [job1, job2, job3]
     steps:
       - name: Running single command in job4 
         run: echo "Hi, I'm from Job4"
-        
+      - name: Running macos command to get computer info
+        run: sw_vers
     
         
     
