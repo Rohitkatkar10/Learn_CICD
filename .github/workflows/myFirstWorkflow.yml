@@ -5,13 +5,24 @@ name: my-first-workflow # Name of the workflow shown on the left side in `Action
 on: push 
 jobs:
   job1: # This should be unique
-    name: job1 Unique name # Optional, descriptive, 
+    name: job1 UI name # Optional, descriptive, 
     runs-on: ubuntu-latest
     steps:
       - name: Running single command in job1
         run: echo "Hi, this is my first command run"
       - name: Check OS release of the runner
         run: cat /etc/os-release
-        
+  job2:
+    name: job2 UI name 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checking hostname for runner
+        run: hostname
+      - name: Running multiple commands 
+        run: |
+          echo "Hi, From second job and second step"
+          echo "The second command from multiple commands section"
+          echo "Current time is `date`"
+    
         
     
