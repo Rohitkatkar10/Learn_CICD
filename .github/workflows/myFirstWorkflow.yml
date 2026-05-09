@@ -23,6 +23,21 @@ jobs:
           echo "Hi, From second job and second step"
           echo "The second command from multiple commands section"
           echo "Current time is `date`"
+  job3:
+    name: job3 UI name
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Running single command in Job3 
+        run: echo "Hi, I am from Job3"
+  job4:
+    name: job4 UI name 
+    runs-on: ubuntu-latest
+    needs: [job1, job2, job3]
+    steps:
+      - name: Running single command in job4 
+        run: echo "Hi, I'm from Job4"
+        
     
         
     
