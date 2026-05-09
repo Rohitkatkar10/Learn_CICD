@@ -2,7 +2,12 @@ name: my-first-workflow # Name of the workflow shown on the left side in `Action
 # run-name: This-is-name # `Dynamic name`, shown for ran workflows in middle, `optinal`, else commit message shown
 
 # Trigger this workflow for every push for all branches
-on: push 
+on: 
+  push:
+  schedule:
+    - cron: '5 * * * *'
+  workflow_dispatch:
+  
 jobs:
   job1: # This should be unique
     name: job1 UI name # Optional, descriptive, 
