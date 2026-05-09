@@ -1,0 +1,5 @@
+name: my-first-workflow
+run-name: This-is-name 
+
+# Trigger this workflow for every push for all branches
+on: push 
