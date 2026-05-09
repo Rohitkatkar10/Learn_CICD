@@ -3,3 +3,15 @@ run-name: This-is-name
 
 # Trigger this workflow for every push for all branches
 on: push 
+jobs:
+  job1:
+    name: job1 Unique name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running single command in job1
+        run: echo "Hi, this is my first command run"
+      - name: Check OS release of the runner
+        run: cat /etc/os-release
+        
+        
+    
