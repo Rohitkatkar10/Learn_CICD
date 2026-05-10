@@ -74,9 +74,9 @@ jobs:
           pwd
           ls -ltr
       - name: Download single file artifacts 
-        run: actions/download-artifacts@v8
-          with:
-            name: single_file
+        uses: actions/download-artifact@v8
+        with:
+          name: single_file
       - name: List of directories after download
         run: |
           pwd
