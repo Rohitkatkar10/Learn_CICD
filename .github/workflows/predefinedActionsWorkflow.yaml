@@ -20,6 +20,7 @@ jobs:
           echo ${{github.workspace}}
           echo  ${{ github.repository }}
           echo  ${{ github.actor }}
+          
       - name: checkout git repo
         uses: actions/checkout@v6
         # with: # with key will allow user to add more details about repo and branch name 
@@ -31,7 +32,7 @@ jobs:
           echo `pwd` >> myartifact.txt 
           mkdir artifacts
           echo `ls -ltr` >> artifacts/list.txt 
-          echo `hostname` >> artifacts.hostname.txt 
+          echo `hostname` >> artifacts/hostname.txt 
           
       - name: upload artifacts
         uses: actions/upload-artifact@v7
