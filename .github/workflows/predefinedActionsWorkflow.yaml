@@ -133,7 +133,7 @@ jobs:
         run: |
           pwd
           echo "checking in single_file_dir"
-          ls -ltr 
+          ls -ltr single_file_dir
           echo "checking in multiple_file_dir"
-          ls -ltr 
+          ls -ltr multiple_file_dir
           
