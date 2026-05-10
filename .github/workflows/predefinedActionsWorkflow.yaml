@@ -18,6 +18,7 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo ${{github.workspace}}
           echo  ${{ github.repository }}
+          echo  ${{ github.actor }}
       - name: checkout git repo
         uses: actions/checkout@v6
         # with: # with key will allow user to add more details about repo and branch name 
