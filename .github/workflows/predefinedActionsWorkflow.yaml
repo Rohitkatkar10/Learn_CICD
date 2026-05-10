@@ -1,0 +1,27 @@
+name: Predefined-gitHub-Actions
+
+on:
+  push:
+  
+jobs:
+  job1:
+    name: predefined action job1 UI name 
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of directories before checkout 
+        run: |
+          pwd
+          ls -ltr
+          hostname
+      - name: checkout git repo
+        uses: actions/checkout@v6
+        # with: # with key will allow user to add more details about repo and branch name 
+          # repository: <name of the other repository> # 
+          # ref: <name of the branch >  # name of the branch from 'repository' else default repo is same repo where workflow run
+      - name: List of directories after checkout
+        run: |
+          pwd
+          ls -ltr
+          hostname 
+          
+          
