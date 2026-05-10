@@ -13,8 +13,10 @@ jobs:
           pwd
           ls -ltr
           hostname
-      - name: check current workspace
-        run: echo $GITHUB_WORKSPACE
+      - name: check current workspace and repository
+        run: |
+          echo $GITHUB_WORKSPACE
+          echo  ${{ github.repository }}
       - name: checkout git repo
         uses: actions/checkout@v6
         # with: # with key will allow user to add more details about repo and branch name 
