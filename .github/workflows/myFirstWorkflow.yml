@@ -3,10 +3,10 @@ name: my-first-workflow # Name of the workflow shown on the left side in `Action
 
 # Trigger this workflow for every push for all branches
 on: 
-  push:
+  # push:
   # schedule:
     # - cron: '5 * * * *' # Trigger workflow after every 5 minutes
-  # workflow_dispatch:
+  workflow_dispatch:
   
 jobs:
   job1: # This should be unique
