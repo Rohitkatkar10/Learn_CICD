@@ -25,7 +25,7 @@ jobs:
           # ref: <name of the branch >  # name of the branch from 'repository' else default repo is same repo where workflow run
       - name: List of directories after checkout
         run: |
-          ehco `pwd` >> myartifact.txt 
+          echo `pwd` >> myartifact.txt 
           ls -ltr
           hostname
       - name: upload artifacts
