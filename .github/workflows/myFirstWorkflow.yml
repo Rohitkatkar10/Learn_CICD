@@ -6,7 +6,7 @@ on:
   # push:
   # schedule:
     # - cron: '5 * * * *' # Trigger workflow after every 5 minutes
-  workflow_dispatch:
+  workflow_dispatch: # Run workflow button will appear on UI
   
 jobs:
   job1: # This should be unique
