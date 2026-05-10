@@ -15,7 +15,8 @@ jobs:
           hostname
       - name: check current workspace and repository
         run: |
-          echo ${{GITHUB_WORKSPACE}}
+          echo $GITHUB_WORKSPACE
+          echo ${{github.workspace}}
           echo  ${{ github.repository }}
       - name: checkout git repo
         uses: actions/checkout@v6
