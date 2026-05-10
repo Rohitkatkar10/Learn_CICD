@@ -5,7 +5,7 @@ on:
   
 jobs:
   job1:
-    name: predefined action job1 UI name 
+    name: predefined upload artifacts action job1 UI name 
     runs-on: ubuntu-latest
     steps:
       - name: List of directories before checkout 
@@ -65,4 +65,19 @@ jobs:
             artifacts/
             !**/hostname.txt
           retention-days: 1
-          
+  job2:
+    name: predefined download artifacts action job2 UI name
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of directories before download
+        run: |
+          pwd
+          ls -ltr
+      - name: Download single file artifacts 
+        run: actions/download-artifacts@v8
+        with:
+          name: single_file
+      - name: List of directories after download
+        run: |
+          pwd
+          ls -ltr 
