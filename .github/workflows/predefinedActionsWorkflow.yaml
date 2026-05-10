@@ -15,7 +15,7 @@ jobs:
           hostname
       - name: check current workspace and repository
         run: |
-          echo $GITHUB_WORKSPACE
+          echo ${{GITHUB_WORKSPACE}}
           echo  ${{ github.repository }}
       - name: checkout git repo
         uses: actions/checkout@v6
@@ -24,8 +24,13 @@ jobs:
           # ref: <name of the branch >  # name of the branch from 'repository' else default repo is same repo where workflow run
       - name: List of directories after checkout
         run: |
-          pwd
+          ehco `pwd` >> myartifact.txt 
           ls -ltr
-          hostname 
+          hostname
+      - name: upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: single_file
+          path: ./myartifact.txt
           
           
