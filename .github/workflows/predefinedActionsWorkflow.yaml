@@ -2,6 +2,8 @@ name: Predefined-gitHub-Actions
 
 on:
   push:
+    branches:
+      - main # trigger workflow only for main branch
   
 jobs:
   job1:
