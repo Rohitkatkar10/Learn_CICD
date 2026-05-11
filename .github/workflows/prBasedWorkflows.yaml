@@ -6,6 +6,9 @@ on:
     branches:
       - github_actions
       - 'feature-*'
+  pull_request:
+    branches:
+      - main # when PR raised to merge in main branch
   
 jobs:
   job1:
