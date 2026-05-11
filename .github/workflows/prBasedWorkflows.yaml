@@ -1,5 +1,5 @@
 name: PR Based Workflow
-run-name: Running workflow for: ${{github.workflow}}
+run-name: 'Running workflow for: ${{github.workflow}}'
 
 on:
   push:
