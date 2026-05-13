@@ -76,4 +76,4 @@ jobs:
           echo "[INFO] Application is Accessible on port $APP_PORT."    
       - name: Referring to  Repo Secrets
         run: |
-          echo "[INFO] Application password is ${{ secrets.APP_PASSWORD }}
+          echo "[INFO] Application password is ${{secrets.APP_PASSWORD}}"
