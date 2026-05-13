@@ -1,4 +1,4 @@
-name: Environments and Variable workflow
+name: Environments and Variable workflow 
 run-name: 'Running workflow for: ${{github.workflow}}'
 
 on:
@@ -76,4 +76,4 @@ jobs:
           echo "[INFO] Application is Accessible on port $APP_PORT."    
       - name: Referring to  Repo Secrets
         run: |
-          echo "[INFO] Application password is ${{secrets.APP_PASSWORD}}
+          echo "[INFO] Application password is ${{ secrets.APP_PASSWORD }}
