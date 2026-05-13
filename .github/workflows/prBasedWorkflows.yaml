@@ -4,7 +4,7 @@ run-name: 'Running workflow for: ${{github.workflow}}'
 on:
   push:
     branches:
-      - github_actions
+      # - github_actions # avoinding running this branch for now
       - 'feature-*'
   pull_request:
     branches:
@@ -12,7 +12,7 @@ on:
   
 jobs:
   job1:
-    name: predefined upload artifacts action job1 UI name 
+    name: PR based upload artifacts action job1 UI name 
     runs-on: ubuntu-latest
     steps:
       - name: List of directories before checkout 
@@ -49,7 +49,7 @@ jobs:
           retention-days: 1 # Avoid storage occupation since upload it done for learning
 
   job2:
-    name: predefined download artifacts action job2 UI name
+    name: PR based download artifacts action job2 UI name
     runs-on: ubuntu-latest
     needs: job1
     steps:
