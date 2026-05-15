@@ -17,7 +17,7 @@ env:
   APP_PORT: 5000
 jobs:
   job1:
-    name: PR based upload artifacts action job1 UI name 
+    name: Evironments, Variables & contexts job1 UI name
     runs-on: ubuntu-latest
     steps:
       - name: List of directories before checkout 
@@ -54,7 +54,7 @@ jobs:
           retention-days: 1 # Avoid storage occupation since upload it done for learning
 
   job2:
-    name: PR based download artifacts action job2 UI name
+    name: Evironment Variables job2 UI name
     runs-on: ubuntu-latest
     needs: job1
     steps:
@@ -77,3 +77,14 @@ jobs:
       - name: Referring to  Repo Secrets
         run: |
           echo "[INFO] Application password is ${{secrets.APP_PASSWORD}}"
+          
+  job3:
+    name: Build-in contexts job3 UI name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Referring to Build-in contexts 
+        run: |
+          echo "[INFO] The current job ID is ${{ job.check_run_id }}."
+          echo "[INFO] The architecture of the runner ${{ runner.arch }}."
+          echo "[INFO] The runner is ${{ runner.environment }}."
+          
