@@ -87,4 +87,6 @@ jobs:
           echo "[INFO] The current job ID is ${{ job.check_run_id }}."
           echo "[INFO] The architecture of the runner ${{ runner.arch }}."
           echo "[INFO] The runner is ${{ runner.environment }}."
+          echo "[INFO] The branch is ${{ github.ref }}."
+          echo "[INFO] The branch name is ${{ github.github.ref_name }}."
           

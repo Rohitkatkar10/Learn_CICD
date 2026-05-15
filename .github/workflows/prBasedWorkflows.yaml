@@ -1,4 +1,4 @@
-name: PR Based Workflow
+name: PR-Based-Workflow
 run-name: 'Running workflow for: ${{github.workflow}}'
 
 on:
