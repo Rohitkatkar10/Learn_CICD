@@ -17,60 +17,24 @@ env:
   APP_PORT: 5000
 jobs:
   job1:
-    name: Evironments, Variables & contexts job1 UI name
+    name: Evironments, Variables & contexts set by github job1 UI name
     runs-on: ubuntu-latest
     steps:
-      - name: List of directories before checkout 
+      - name: Default env variables by github
         run: |
-          pwd
-          ls -ltr
-          hostname
-          
-      - name: check current workspace and repository
+          echo "[INFO] The workspace for current workflow is $GITHUB_WORKSPACE."
+      - name: Built-in contexts by github
         run: |
-          echo $GITHUB_WORKSPACE
-          echo ${{github.workspace}}
-          echo  ${{ github.repository }}
-          echo  ${{ github.actor }}
+          echo "[INFO] The Built-in contexts for workspace is ${{github.workspace}}."
+          echo  "[INFO] The Built-in contexts for repository is ${{ github.repository }}."
+          echo  "[INFO] The Built-in contexts for actor is ${{ github.actor }}."
           
-      - name: checkout git repo
-        uses: actions/checkout@v6
-        # with: # with key will allow user to add more details about repo and branch name 
-          # repository: <name of the other repository> # 
-          # ref: <name of the branch >  # name of the branch from 'repository' else default repo is same repo where workflow run
-          
-      - name: List of directories after checkout
-        run: |
-          echo `pwd` >> myartifact.txt 
-          mkdir artifacts
-          echo `ls -ltr` >> artifacts/list.txt 
-          echo `hostname` >> artifacts/hostname.txt 
-          
-      - name: upload artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: single_file
-          path: ./myartifact.txt
-          retention-days: 1 # Avoid storage occupation since upload it done for learning
 
   job2:
-    name: Evironment Variables job2 UI name
+    name: Workflow Level Evironment Variables and Repo Secrets job2 UI name
     runs-on: ubuntu-latest
-    needs: job1
     steps:
-      - name: List of directories before download
-        run: |
-          pwd
-          ls -ltr
-      - name: Download single file artifacts 
-        uses: actions/download-artifact@v8
-        with:
-          name: single_file
-      - name: List of directories after download
-        run: |
-          pwd
-          ls -ltr
-      - name: Referring Env variables
+      - name: Referring Workflow level Env variables
         run: |
           echo "[INFO] Running deployment for $ENV_TYPE with user $APP_USER."
           echo "[INFO] Application is Accessible on port $APP_PORT."    
@@ -89,4 +53,30 @@ jobs:
           echo "[INFO] The runner is ${{ runner.environment }}."
           echo "[INFO] The branch is ${{ github.ref }}."
           echo "[INFO] The branch name is ${{ github.github.ref_name }}."
+  
+  Development:
+    name: Build For Development Env. 
+    runs-on: ubuntu-latest
+    environment:
+      name: DEVELOPMENT
+    steps:
+      - name: Referring Development Env specific Env Vars
+        run: |
+          echo "[INFO] The user is ${{ vars.USER_NAME }}."
+          echo "[INFO] The host is ${{ vars.HOST }}."
+          echo "[INFO] The password is ${{ secrets.PASSWORD }}."
+          
+  Productoin:
+    name: Build For production Env. 
+    runs-on: ubuntu-latest
+    environment:
+      name: PRODUCTION
+    steps:
+      - name: Referring production Env specific Env Vars
+        run: |
+          echo "[INFO] The user is ${{ vars.USER_NAME }}."
+          echo "[INFO] The host is ${{ vars.HOST }}."
+          echo "[INFO] The password is ${{ secrets.PASSWORD }}."
+      
+  
           
