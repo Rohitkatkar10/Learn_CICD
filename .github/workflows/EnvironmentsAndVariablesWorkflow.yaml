@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main # when PR raised to merge in main branch
+  workflow_dispatch:
 
 # Adding Global level Env variables for workflow
 env:
