@@ -46,7 +46,7 @@ jobs:
   job3:
     name: Build-in contexts job3 UI name
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: Referring to Build-in contexts 
         run: |
           echo "[INFO] The current job ID is ${{ job.check_run_id }}."
@@ -60,18 +60,21 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: DEVELOPMENT
+    if github.ref == 'refs/heads/github_actions'
     steps:
       - name: Referring Development Env specific Env Vars
         run: |
           echo "[INFO] The user is ${{ vars.USER_NAME }}."
           echo "[INFO] The host is ${{ vars.HOST }}."
           echo "[INFO] The password is ${{ secrets.PASSWORD }}."
+          echo "[INFO] Current branch is ${{ github.ref }}
           
   Productoin:
     name: Build For production Env. 
     runs-on: ubuntu-latest
     environment:
       name: PRODUCTION
+    if github.ref == 'refs/heads/main'
     steps:
       - name: Referring production Env specific Env Vars
         run: |
