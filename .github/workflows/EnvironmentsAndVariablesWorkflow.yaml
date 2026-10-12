@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: DEVELOPMENT
-    if github.ref == 'refs/heads/github_actions'
+    if: github.ref == 'refs/heads/github_actions'
     steps:
       - name: Referring Development Env specific Env Vars
         run: |
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: PRODUCTION
-    if github.ref == 'refs/heads/main'
+    if: github.ref == "refs/heads/main"
     steps:
       - name: Referring production Env specific Env Vars
         run: |
