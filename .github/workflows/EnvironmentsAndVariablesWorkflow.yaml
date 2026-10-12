@@ -67,7 +67,7 @@ jobs:
           echo "[INFO] The user is ${{ vars.USER_NAME }}."
           echo "[INFO] The host is ${{ vars.HOST }}."
           echo "[INFO] The password is ${{ secrets.PASSWORD }}."
-          echo "[INFO] Current branch is ${{ github.ref }}
+          echo "[INFO] Current branch is ${{ github.ref }}"
           
   Productoin:
     name: Build For production Env. 
